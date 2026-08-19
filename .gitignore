@@ -1,0 +1,18 @@
+# Local backups and temporary files
+backup-before-*/
+*.bak
+*.log
+*.tmp
+*~
+
+# Local environment and deployment metadata
+.env
+.env.*
+!.env.example
+.vercel/
+
+# Dependency and operating-system artifacts
+node_modules/
+.DS_Store
+Thumbs.db
+Desktop.ini
