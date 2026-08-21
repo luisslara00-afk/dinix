@@ -11,11 +11,11 @@ const ROUTE_TITLES = {
 
 /* Configuración central: agrega una URL real para habilitar cada canal. */
 const SOCIAL_LINKS = {
-  whatsappChannel: '',
-  facebook: '',
-  instagram: '',
+  whatsappChannel: 'https://whatsapp.com/channel/0029Vb8SmLD1XqudjBhsP924',
+  facebook: 'https://www.facebook.com/dinixtech',
+  instagram: 'https://www.instagram.com/dinixtech/',
   tiktok: 'https://www.tiktok.com/@dinixtech?_r=1&_t=ZS-993K8dtfh4f',
-  telegram: ''
+  telegram: 'https://t.me/dinixtech'
 };
 
 function buildWhatsAppUrl(message) {
@@ -260,12 +260,54 @@ projectButtons.forEach((button) => button.addEventListener('click', () => render
 
 /* Automatización e IA */
 const AI_CASES = {
-  responder:{label:'Responder',benefit:'Atiende lo frecuente sin empezar de cero cada vez.',flow:['Llega una pregunta','Se identifica lo necesario','Se prepara respuesta','Tú revisas lo importante']},
-  cotizar:{label:'Cotizar',benefit:'Prepara un primer borrador con la información correcta.',flow:['Cliente pide información','Se recopilan datos','Se prepara borrador','Tú revisas y envías']},
-  seguimiento:{label:'Dar seguimiento',benefit:'Que las oportunidades no dependan de la memoria.',flow:['Cliente pregunta','Se registra pendiente','Se programa seguimiento','Recibes aviso']},
-  resumir:{label:'Resumir',benefit:'Encuentra lo importante sin releer todo.',flow:['Documentos o mensajes','IA analiza','Extrae lo importante','Entrega resumen']},
-  organizar:{label:'Organizar',benefit:'Convierte información dispersa en tareas claras.',flow:['Llegan datos','Se clasifican','Se asigna contexto','Ves lo que sigue']},
-  recordar:{label:'Recordar',benefit:'Recibe avisos cuando realmente toca actuar.',flow:['Se crea pendiente','Se define fecha','Se vigila el momento','Recibes recordatorio']}
+  responder:{
+    label:'Responder',
+    benefit:'Atiende lo frecuente sin empezar de cero cada vez.',
+    tool:'Bot conectado a WhatsApp, chat web o canal de atención.',
+    problem:'Las preguntas frecuentes se acumulan y algunas conversaciones quedan sin respuesta.',
+    flow:[['Cliente','Envía una pregunta.'],['Bot','Pide los datos que hacen falta.'],['IA','Interpreta la necesidad y la información recibida.'],['Automatización','Responde o clasifica la conversación.'],['Persona','Recibe el caso ordenado cuando debe intervenir.']],
+    result:'Menos mensajes sin responder y atención más rápida sin perder el trato humano.'
+  },
+  cotizar:{
+    label:'Cotizar',
+    benefit:'Prepara cotizaciones completas con menos captura manual.',
+    tool:'Bot o formulario conectado con catálogo, reglas de precio y generador de cotizaciones.',
+    problem:'Faltan datos para cotizar y cada solicitud obliga a buscar precios y escribir todo de nuevo.',
+    flow:[['Cliente','Solicita precio y describe lo que necesita.'],['Bot o formulario','Obtiene cantidades, medidas y datos de contacto.'],['Sistema','Identifica el producto o servicio solicitado.'],['Automatización','Consulta catálogo y reglas de precio.'],['IA','Prepara un borrador claro de la cotización.'],['Persona','Revisa condiciones y la envía al cliente.']],
+    result:'Cotizaciones más rápidas, con la información necesaria y control antes de enviarlas.'
+  },
+  seguimiento:{
+    label:'Dar seguimiento',
+    benefit:'Que cada oportunidad tenga un siguiente paso visible.',
+    tool:'CRM conectado con automatización de tareas, avisos y registro de actividad.',
+    problem:'Los prospectos quedan repartidos entre mensajes y la siguiente llamada depende de la memoria.',
+    flow:[['Canal de entrada','Recibe al prospecto desde WhatsApp, web o llamada.'],['CRM','Crea su registro y conserva el contexto.'],['Responsable','Define la siguiente acción y su fecha.'],['Automatización','Vigila cuándo debe realizarse.'],['Sistema','Genera tarea o recordatorio.'],['Equipo','Registra lo ocurrido y programa el siguiente paso.']],
+    result:'Seguimiento constante y oportunidades visibles para todo el equipo.'
+  },
+  resumir:{
+    label:'Resumir',
+    benefit:'Convierte contenido largo en información lista para actuar.',
+    tool:'IA para analizar mensajes, notas, audios y documentos; transcripción cuando hace falta.',
+    problem:'La información importante queda escondida en conversaciones, audios o archivos extensos.',
+    flow:[['Fuentes','Reciben mensajes, notas, audios o documentos.'],['Transcripción','Convierte el audio en texto cuando corresponde.'],['IA','Analiza el contenido y detecta lo importante.'],['Clasificación','Separa datos, acuerdos y pendientes.'],['Sistema','Genera un resumen breve y utilizable.']],
+    result:'Menos tiempo revisando contenido y más claridad sobre acuerdos y pendientes.'
+  },
+  organizar:{
+    label:'Organizar',
+    benefit:'Convierte datos dispersos en registros que sí se pueden usar.',
+    tool:'Formularios, CRM o base de datos conectados mediante automatización e IA.',
+    problem:'Clientes, solicitudes y documentos llegan por distintos lugares y terminan duplicados o incompletos.',
+    flow:[['Canales','Reciben datos desde formularios, mensajes y archivos.'],['Formulario','Solicita y normaliza la información necesaria.'],['IA','Clasifica el tipo de solicitud y extrae datos.'],['Automatización','Crea o actualiza el registro correcto.'],['CRM o base','Muestra responsables, estado y siguiente acción.']],
+    result:'Información consistente, localizable y preparada para operar o dar seguimiento.'
+  },
+  recordar:{
+    label:'Recordar',
+    benefit:'Actúa a tiempo sin depender de revisar una lista todo el día.',
+    tool:'CRM o gestor de tareas conectado con una automatización programada.',
+    problem:'Compromisos, renovaciones y fechas importantes se olvidan cuando aumenta el trabajo.',
+    flow:[['Persona o sistema','Registra la tarea o el compromiso.'],['Gestor','Guarda responsable, fecha y prioridad.'],['Automatización','Monitorea el vencimiento.'],['Aviso','Llega por el canal y momento definidos.'],['Control','Cierra la tarea o escala el seguimiento si sigue pendiente.']],
+    result:'Menos vencimientos olvidados y responsables claros para cada compromiso.'
+  }
 };
 
 const aiButtons = document.querySelectorAll('[data-ai-case]');
@@ -284,8 +326,19 @@ function renderAiCase(key) {
   if (activeButton && aiCasePanel) aiCasePanel.setAttribute('aria-labelledby', activeButton.id);
   document.getElementById('ai-case-label').textContent = data.label;
   document.getElementById('ai-case-benefit').textContent = data.benefit;
+  document.getElementById('ai-case-tool').textContent = data.tool;
+  document.getElementById('ai-case-problem').textContent = data.problem;
+  document.getElementById('ai-case-result').textContent = data.result;
   const flow = document.getElementById('ai-flow'); const nodes = [];
-  data.flow.forEach((item, index) => { const span = document.createElement('span'); span.textContent = item; nodes.push(span); if (index < data.flow.length - 1) { const arrow = document.createElement('i'); arrow.textContent = '→'; nodes.push(arrow); } });
+  data.flow.forEach(([actor, action]) => {
+    const item = document.createElement('li');
+    const label = document.createElement('b');
+    const copy = document.createElement('span');
+    label.textContent = actor;
+    copy.textContent = action;
+    item.append(label, copy);
+    nodes.push(item);
+  });
   flow.replaceChildren(...nodes);
   restartPanelTransition(aiCasePanel);
 }
@@ -372,6 +425,16 @@ const audioStatus = document.getElementById('audio-status');
 const videoStatus = document.getElementById('video-status');
 const audioRemove = document.querySelector('[data-clear-file="audio"]');
 const videoRemove = document.querySelector('[data-clear-file="video"]');
+const audioRecordStart = document.querySelector('[data-audio-record-start]');
+const audioRecordStop = document.querySelector('[data-audio-record-stop]');
+const audioRecordAgain = document.querySelector('[data-audio-record-again]');
+const audioRecordDownload = document.querySelector('[data-audio-record-download]');
+const audioRecorderPanel = document.querySelector('[data-audio-recorder-panel]');
+const audioRecorderState = document.getElementById('audio-recorder-state');
+const audioRecorderTime = document.getElementById('audio-recorder-time');
+const audioRecorderPreview = document.getElementById('audio-recorder-preview');
+const audioRecorderHelp = document.getElementById('audio-recorder-help');
+const audioFallbackInput = document.getElementById('diagnosis-audio-fallback');
 const diagnosisResult = document.getElementById('diagnosis-result');
 const diagnosisTalk = document.getElementById('diagnosis-talk');
 const diagnosisWait = document.getElementById('diagnosis-wait');
@@ -382,6 +445,12 @@ const mediaInputs = {
 };
 const mediaStatus = { audio: audioStatus, video: videoStatus };
 const mediaRemove = { audio: audioRemove, video: videoRemove };
+let audioRecorder = null;
+let audioStream = null;
+let audioChunks = [];
+let audioPreviewUrl = '';
+let audioTimerId = 0;
+let audioStartedAt = 0;
 
 function formatFileSize(bytes) {
   if (!Number.isFinite(bytes) || bytes <= 0) return '';
@@ -405,6 +474,7 @@ function selectMediaFile(input) {
   const type = input.dataset.mediaInput;
   const file = input.files?.[0];
   if (!type || !file || !(type in mediaSelections)) return;
+  if (type === 'audio') resetAudioRecorderUi({ hidePanel: true });
   mediaInputs[type].forEach((otherInput) => { if (otherInput !== input) otherInput.value = ''; });
   mediaSelections[type] = { file, action: input.dataset.mediaAction || 'seleccionado' };
   updateFileStatus(type);
@@ -414,12 +484,204 @@ function clearSelectedFile(type) {
   if (!(type in mediaSelections)) return;
   mediaInputs[type].forEach((input) => { input.value = ''; });
   mediaSelections[type] = null;
+  if (type === 'audio') resetAudioRecorderUi({ hidePanel: true });
   updateFileStatus(type);
 }
 
+function supportsInPageAudioRecording() {
+  return Boolean(navigator.mediaDevices?.getUserMedia && window.MediaRecorder);
+}
+
+function releaseAudioStream() {
+  audioStream?.getTracks().forEach((track) => track.stop());
+  audioStream = null;
+}
+
+function clearAudioTimer({ reset = true } = {}) {
+  window.clearInterval(audioTimerId);
+  audioTimerId = 0;
+  if (reset && audioRecorderTime) {
+    audioRecorderTime.textContent = '00:00';
+    audioRecorderTime.dateTime = 'PT0S';
+  }
+}
+
+function updateAudioTimer() {
+  if (!audioRecorderTime || !audioStartedAt) return;
+  const seconds = Math.max(0, Math.floor((Date.now() - audioStartedAt) / 1000));
+  const minutes = String(Math.floor(seconds / 60)).padStart(2, '0');
+  const remainder = String(seconds % 60).padStart(2, '0');
+  audioRecorderTime.textContent = `${minutes}:${remainder}`;
+  audioRecorderTime.dateTime = `PT${seconds}S`;
+}
+
+function revokeAudioPreview() {
+  if (audioPreviewUrl) URL.revokeObjectURL(audioPreviewUrl);
+  audioPreviewUrl = '';
+  if (audioRecordDownload) {
+    audioRecordDownload.removeAttribute('href');
+    audioRecordDownload.removeAttribute('download');
+    audioRecordDownload.hidden = true;
+  }
+  if (!audioRecorderPreview) return;
+  audioRecorderPreview.pause();
+  audioRecorderPreview.removeAttribute('src');
+  audioRecorderPreview.load();
+  audioRecorderPreview.hidden = true;
+}
+
+function cancelActiveAudioRecording() {
+  if (audioRecorder && audioRecorder.state !== 'inactive') {
+    audioRecorder.ondataavailable = null;
+    audioRecorder.onstop = null;
+    audioRecorder.onerror = null;
+    audioRecorder.stop();
+  }
+  audioRecorder = null;
+  audioChunks = [];
+  releaseAudioStream();
+  clearAudioTimer();
+}
+
+function resetAudioRecorderUi({ hidePanel = false } = {}) {
+  cancelActiveAudioRecording();
+  revokeAudioPreview();
+  audioRecorderPanel?.classList.remove('is-recording');
+  audioRecordStart?.classList.remove('is-recording');
+  audioRecordStart?.setAttribute('aria-pressed', 'false');
+  if (audioRecordStart) audioRecordStart.disabled = false;
+  if (audioRecordStop) audioRecordStop.disabled = true;
+  if (audioRecordAgain) audioRecordAgain.hidden = true;
+  if (audioRecorderState) audioRecorderState.textContent = 'Listo para grabar.';
+  if (audioRecorderHelp) audioRecorderHelp.textContent = 'La grabación se conserva temporalmente en este dispositivo. Nada se envía automáticamente.';
+  if (audioRecorderPanel && hidePanel) audioRecorderPanel.hidden = true;
+}
+
+function preferredAudioMimeType() {
+  if (!window.MediaRecorder?.isTypeSupported) return '';
+  return ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg;codecs=opus'].find((type) => MediaRecorder.isTypeSupported(type)) || '';
+}
+
+function audioExtension(mimeType) {
+  if (mimeType.includes('mp4')) return 'm4a';
+  if (mimeType.includes('ogg')) return 'ogg';
+  return 'webm';
+}
+
+async function startAudioRecording() {
+  if (!supportsInPageAudioRecording()) {
+    if (audioRecorderPanel) audioRecorderPanel.hidden = false;
+    if (audioRecorderState) audioRecorderState.textContent = 'La grabadora interna no está disponible en este navegador.';
+    if (audioRecorderHelp) audioRecorderHelp.textContent = 'Usaremos la opción de captura compatible del dispositivo como alternativa.';
+    audioFallbackInput?.click();
+    return;
+  }
+
+  cancelActiveAudioRecording();
+  revokeAudioPreview();
+  mediaInputs.audio.forEach((input) => { input.value = ''; });
+  mediaSelections.audio = null;
+  updateFileStatus('audio');
+  if (audioRecorderPanel) audioRecorderPanel.hidden = false;
+  if (audioRecorderState) audioRecorderState.textContent = 'Solicitando permiso para usar el micrófono…';
+  if (audioRecorderHelp) audioRecorderHelp.textContent = 'Permite el micrófono para crear una nota nueva dentro de esta página.';
+  if (audioRecordStart) audioRecordStart.disabled = true;
+  if (audioRecordAgain) audioRecordAgain.hidden = true;
+
+  try {
+    audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    const mimeType = preferredAudioMimeType();
+    const recorder = mimeType ? new MediaRecorder(audioStream, { mimeType }) : new MediaRecorder(audioStream);
+    audioRecorder = recorder;
+    audioChunks = [];
+
+    recorder.ondataavailable = (event) => {
+      if (event.data?.size) audioChunks.push(event.data);
+    };
+
+    recorder.onstop = () => {
+      clearAudioTimer({ reset: false });
+      releaseAudioStream();
+      audioRecorder = null;
+      const recordedType = recorder.mimeType || mimeType || 'audio/webm';
+      const audioBlob = new Blob(audioChunks, { type: recordedType });
+      audioChunks = [];
+
+      if (!audioBlob.size) {
+        if (audioRecorderState) audioRecorderState.textContent = 'No se pudo crear el audio. Intenta grabarlo otra vez.';
+        if (audioRecordStart) audioRecordStart.disabled = false;
+        if (audioRecordStop) audioRecordStop.disabled = true;
+        return;
+      }
+
+      const filename = `diagnostico-dinix-${Date.now()}.${audioExtension(recordedType)}`;
+      const file = new File([audioBlob], filename, { type: recordedType, lastModified: Date.now() });
+      mediaSelections.audio = { file, action: 'grabado' };
+      audioPreviewUrl = URL.createObjectURL(audioBlob);
+      if (audioRecorderPreview) {
+        audioRecorderPreview.src = audioPreviewUrl;
+        audioRecorderPreview.hidden = false;
+      }
+      if (audioRecordDownload) {
+        audioRecordDownload.href = audioPreviewUrl;
+        audioRecordDownload.download = filename;
+        audioRecordDownload.hidden = false;
+      }
+      if (audioRecorderState) audioRecorderState.textContent = 'Grabación lista. Puedes escucharla antes de continuar.';
+      if (audioRecorderHelp) audioRecorderHelp.textContent = 'Si no te convence, elimínala o toca “Volver a grabar”.';
+      audioRecorderPanel?.classList.remove('is-recording');
+      audioRecordStart?.classList.remove('is-recording');
+      audioRecordStart?.setAttribute('aria-pressed', 'false');
+      if (audioRecordStart) audioRecordStart.disabled = false;
+      if (audioRecordStop) audioRecordStop.disabled = true;
+      if (audioRecordAgain) audioRecordAgain.hidden = false;
+      updateFileStatus('audio');
+    };
+
+    recorder.onerror = () => {
+      releaseAudioStream();
+      clearAudioTimer();
+      audioRecorderPanel?.classList.remove('is-recording');
+      if (audioRecorderState) audioRecorderState.textContent = 'La grabación se interrumpió. Inténtalo nuevamente.';
+      if (audioRecordStart) audioRecordStart.disabled = false;
+      if (audioRecordStop) audioRecordStop.disabled = true;
+    };
+
+    recorder.start(250);
+    audioStartedAt = Date.now();
+    updateAudioTimer();
+    audioTimerId = window.setInterval(updateAudioTimer, 250);
+    audioRecorderPanel?.classList.add('is-recording');
+    audioRecordStart?.classList.add('is-recording');
+    audioRecordStart?.setAttribute('aria-pressed', 'true');
+    if (audioRecordStop) audioRecordStop.disabled = false;
+    if (audioRecorderState) audioRecorderState.textContent = 'Grabando… habla cerca del micrófono.';
+    if (audioRecorderHelp) audioRecorderHelp.textContent = 'Toca “Detener” cuando termines.';
+  } catch (error) {
+    releaseAudioStream();
+    clearAudioTimer();
+    audioRecorderPanel?.classList.remove('is-recording');
+    if (audioRecordStart) audioRecordStart.disabled = false;
+    if (audioRecordStop) audioRecordStop.disabled = true;
+    if (audioRecorderState) audioRecorderState.textContent = error?.name === 'NotAllowedError' ? 'No se concedió permiso para usar el micrófono.' : 'No fue posible iniciar el micrófono.';
+    if (audioRecorderHelp) audioRecorderHelp.textContent = 'Revisa el permiso del navegador e inténtalo de nuevo. También puedes subir un audio existente.';
+  }
+}
+
+function stopAudioRecording() {
+  if (audioRecorder?.state === 'recording') audioRecorder.stop();
+}
+
 Object.values(mediaInputs).flat().forEach((input) => input.addEventListener('change', () => selectMediaFile(input)));
+audioRecordStart?.addEventListener('click', startAudioRecording);
+audioRecordStop?.addEventListener('click', stopAudioRecording);
+audioRecordAgain?.addEventListener('click', startAudioRecording);
 audioRemove?.addEventListener('click', () => clearSelectedFile('audio'));
 videoRemove?.addEventListener('click', () => clearSelectedFile('video'));
+window.addEventListener('pagehide', () => {
+  cancelActiveAudioRecording();
+  revokeAudioPreview();
+});
 
 diagnosisForm?.addEventListener('submit', (event) => {
   event.preventDefault();

@@ -93,7 +93,7 @@ TikTok y WhatsApp están activos. Los canales sin URL real permanecen deshabilit
 
 El contacto y el diagnóstico preparan un mensaje para WhatsApp; no guardan datos en un servidor.
 
-Audio y video muestran acciones separadas para grabar o subir un archivo local, según las capacidades del dispositivo. El sitio conserva una sola selección por tipo, muestra nombre y tamaño, permite reemplazarla o eliminarla y no la sube ni la almacena. La persona debe adjuntarla manualmente en WhatsApp.
+Audio y video muestran acciones separadas para grabar o subir. **Grabar audio** utiliza `getUserMedia` y `MediaRecorder` para crear, detener, escuchar, eliminar o repetir una nota dentro de la página; sólo recurre al control de captura del dispositivo cuando esas APIs no existen. **Subir audio** conserva el selector de archivos existentes. El video mantiene controles distintos para abrir la cámara o elegir un archivo. El sitio conserva una sola selección por tipo, muestra nombre y tamaño, no sube ni almacena archivos y la persona debe adjuntarlos manualmente en WhatsApp.
 
 Un flujo futuro de transcripción, IA y CRM requerirá backend, almacenamiento seguro, consentimiento y políticas de privacidad definitivas. Esa arquitectura se conserva únicamente como documentación interna y no se muestra en la interfaz pública.
 
