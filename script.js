@@ -416,6 +416,10 @@ contactForm?.addEventListener('submit', (event) => {
 document.querySelectorAll('[data-social]').forEach((button) => {
   const url = SOCIAL_LINKS[button.dataset.social];
   if (!url) { button.disabled = true; button.setAttribute('aria-disabled', 'true'); button.title = 'Canal pendiente de configurar'; return; }
+  button.disabled = false;
+  button.removeAttribute('aria-disabled');
+  button.removeAttribute('title');
+  button.classList.add('is-live');
   button.addEventListener('click', () => window.open(url, '_blank', 'noopener,noreferrer'));
 });
 
