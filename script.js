@@ -14,7 +14,7 @@ const SOCIAL_LINKS = {
   whatsappChannel: '',
   facebook: '',
   instagram: '',
-  tiktok: '',
+  tiktok: 'https://www.tiktok.com/@dinixtech?_r=1&_t=ZS-993K8dtfh4f',
   telegram: ''
 };
 
@@ -80,7 +80,17 @@ routeLinks.forEach((link) => {
 });
 
 window.addEventListener('hashchange', () => showRoute(getRouteFromHash(), { focus: true }));
-showRoute(getRouteFromHash(), { scroll: false });
+showRoute(getRouteFromHash());
+
+function resetInitialRouteScroll() {
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+}
+
+window.addEventListener('load', () => {
+  resetInitialRouteScroll();
+  requestAnimationFrame(() => requestAnimationFrame(resetInitialRouteScroll));
+  window.setTimeout(resetInitialRouteScroll, 150);
+}, { once: true });
 
 /* Mobile drawer */
 function isMenuOpen() {
@@ -358,8 +368,6 @@ document.querySelectorAll('[data-social]').forEach((button) => {
 
 /* Diagnosis: files stay local; only filenames are included in the prepared message. */
 const diagnosisForm = document.getElementById('diagnosis-form');
-const audioInput = document.getElementById('diagnosis-audio');
-const videoInput = document.getElementById('diagnosis-video');
 const audioStatus = document.getElementById('audio-status');
 const videoStatus = document.getElementById('video-status');
 const audioRemove = document.querySelector('[data-clear-file="audio"]');
@@ -367,6 +375,13 @@ const videoRemove = document.querySelector('[data-clear-file="video"]');
 const diagnosisResult = document.getElementById('diagnosis-result');
 const diagnosisTalk = document.getElementById('diagnosis-talk');
 const diagnosisWait = document.getElementById('diagnosis-wait');
+const mediaSelections = { audio: null, video: null };
+const mediaInputs = {
+  audio: [...document.querySelectorAll('[data-media-input="audio"]')],
+  video: [...document.querySelectorAll('[data-media-input="video"]')]
+};
+const mediaStatus = { audio: audioStatus, video: videoStatus };
+const mediaRemove = { audio: audioRemove, video: videoRemove };
 
 function formatFileSize(bytes) {
   if (!Number.isFinite(bytes) || bytes <= 0) return '';
@@ -374,38 +389,53 @@ function formatFileSize(bytes) {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 
-function updateFileStatus(input, target, type, removeButton) {
-  if (!input || !target) return;
-  const file = input.files?.[0];
+function updateFileStatus(type) {
+  const target = mediaStatus[type];
+  const removeButton = mediaRemove[type];
+  if (!target) return;
+  const selection = mediaSelections[type];
+  const file = selection?.file;
   const size = file ? formatFileSize(file.size) : '';
-  target.textContent = file ? `${type} listo en tu dispositivo: ${file.name}${size ? ` · ${size}` : ''}` : `Ningún ${type.toLowerCase()} seleccionado.`;
+  const label = type === 'audio' ? 'Audio' : 'Video';
+  target.textContent = file ? `${label} ${selection.action} listo en tu dispositivo: ${file.name}${size ? ` · ${size}` : ''}` : `Ningún ${label.toLowerCase()} seleccionado.`;
   if (removeButton) removeButton.hidden = !file;
 }
-function clearSelectedFile(input, target, type, removeButton) {
-  if (input) input.value = '';
-  updateFileStatus(input, target, type, removeButton);
-  input?.focus({ preventScroll: true });
+
+function selectMediaFile(input) {
+  const type = input.dataset.mediaInput;
+  const file = input.files?.[0];
+  if (!type || !file || !(type in mediaSelections)) return;
+  mediaInputs[type].forEach((otherInput) => { if (otherInput !== input) otherInput.value = ''; });
+  mediaSelections[type] = { file, action: input.dataset.mediaAction || 'seleccionado' };
+  updateFileStatus(type);
 }
-audioInput?.addEventListener('change', () => updateFileStatus(audioInput, audioStatus, 'Audio', audioRemove));
-videoInput?.addEventListener('change', () => updateFileStatus(videoInput, videoStatus, 'Video', videoRemove));
-audioRemove?.addEventListener('click', () => clearSelectedFile(audioInput, audioStatus, 'Audio', audioRemove));
-videoRemove?.addEventListener('click', () => clearSelectedFile(videoInput, videoStatus, 'Video', videoRemove));
+
+function clearSelectedFile(type) {
+  if (!(type in mediaSelections)) return;
+  mediaInputs[type].forEach((input) => { input.value = ''; });
+  mediaSelections[type] = null;
+  updateFileStatus(type);
+}
+
+Object.values(mediaInputs).flat().forEach((input) => input.addEventListener('change', () => selectMediaFile(input)));
+audioRemove?.addEventListener('click', () => clearSelectedFile('audio'));
+videoRemove?.addEventListener('click', () => clearSelectedFile('video'));
 
 diagnosisForm?.addEventListener('submit', (event) => {
   event.preventDefault();
   const story = diagnosisText?.value.trim() || '';
   const areas = [...diagnosisForm.querySelectorAll('input[name="areas"]:checked')].map((input) => input.value);
-  const audio = audioInput?.files?.[0]?.name || '';
-  const video = videoInput?.files?.[0]?.name || '';
+  const audio = mediaSelections.audio;
+  const video = mediaSelections.video;
 
-  if (!story && !areas.length && !audio && !video) {
+  if (!story && !areas.length && !audio?.file && !video?.file) {
     diagnosisText?.setCustomValidity('Escribe algo, elige una opción o selecciona un archivo.');
     diagnosisText?.reportValidity();
     return;
   }
   diagnosisText?.setCustomValidity('');
 
-  const message = ['Hola, preparé un diagnóstico para Dinix.','',`Lo que está pasando: ${story || 'Prefiero explicarlo por audio o video.'}`,`Áreas que quiero mejorar: ${areas.length ? areas.join(', ') : 'No seleccionadas'}`,audio ? `Audio seleccionado: ${audio} (lo adjuntaré manualmente).` : '',video ? `Video seleccionado: ${video} (lo adjuntaré manualmente).` : ''].filter(Boolean).join('\n');
+  const message = ['Hola, preparé un diagnóstico para Dinix.','',`Lo que está pasando: ${story || 'Prefiero explicarlo por audio o video.'}`,`Áreas que quiero mejorar: ${areas.length ? areas.join(', ') : 'No seleccionadas'}`,audio?.file ? `Audio ${audio.action}: ${audio.file.name} (lo adjuntaré manualmente).` : '',video?.file ? `Video ${video.action}: ${video.file.name} (lo adjuntaré manualmente).` : ''].filter(Boolean).join('\n');
   const waitMessage = `${message}\n\nPrefiero que Dinix revise este contexto y me contacte.`;
   if (diagnosisTalk) diagnosisTalk.href = buildWhatsAppUrl(message);
   if (diagnosisWait) diagnosisWait.href = buildWhatsAppUrl(waitMessage);
@@ -413,15 +443,11 @@ diagnosisForm?.addEventListener('submit', (event) => {
 });
 diagnosisText?.addEventListener('input', () => diagnosisText.setCustomValidity(''));
 
-/* Laura + legal dialogs */
-const lauraDialog = document.getElementById('laura-dialog');
-const usaVideoDialog = document.getElementById('usa-video-dialog');
+/* Legal dialogs */
 const legalDialog = document.getElementById('legal-dialog');
 const legalTitle = document.getElementById('legal-title');
 const legalCopy = document.getElementById('legal-copy');
 function openDialog(dialog) { if (!dialog) return; if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open', ''); }
-document.querySelector('[data-open-laura]')?.addEventListener('click', () => openDialog(lauraDialog));
-document.querySelector('[data-open-usa-video]')?.addEventListener('click', () => openDialog(usaVideoDialog));
 document.querySelectorAll('[data-legal]').forEach((button) => button.addEventListener('click', () => {
   const privacy = button.dataset.legal === 'privacy';
   if (legalTitle) legalTitle.textContent = privacy ? 'Aviso de privacidad' : 'Términos de uso';

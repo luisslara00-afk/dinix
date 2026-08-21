@@ -39,7 +39,7 @@ La implementación actual incluye:
 - tabs interactivas de IA con navegación por teclado;
 - nuevo enfoque de Dinix USA desde México y en español;
 - tabs interactivas de Dinix USA con navegación por teclado;
-- posters de Laura sin autoplay;
+- pósteres temporales de Laura sin controles ni reproducción simulada;
 - diagrama de red local en Nosotros;
 - contacto sin mostrar un nombre personal;
 - redes con color controlado;
@@ -55,18 +55,20 @@ Los recursos activos están en `assets/images/`:
 - `dinix-logo-orange-white.png`: versión oficial con fondo blanco.
 - `dinix-hero-tienda.webp`: fotografía optimizada del hero.
 - `laura-oficial.webp`: retrato optimizado y consistente de Laura.
+- `laura-dinix-usa-temporal.webp`: póster temporal entregado para Dinix USA.
+- `laura-nosotros-temporal.webp`: póster temporal entregado para Nosotros.
 
 La fotografía del hero se redujo a aproximadamente 226 KB y Laura a 60 KB. Los PNG originales entregados no se sobrescribieron.
 
 ## Videos pendientes
 
-No se entregaron archivos finales de video. Los módulos de Laura en Nosotros y Dinix USA utilizan el poster oficial y abren un diálogo que informa claramente que el video está pendiente.
+No se entregaron archivos finales de video. Nosotros y Dinix USA utilizan imágenes temporales sin botón de reproducción, autoplay ni diálogo que simule un video disponible.
 
 Cuando existan los videos:
 
 1. colócalos en una carpeta como `assets/video/`;
-2. sustituye el contenido informativo de los diálogos por un elemento `<video controls preload="none">`;
-3. conserva el poster de Laura;
+2. sustituye la figura `.temporary-media` correspondiente por un elemento `<video controls preload="none">`;
+3. conserva la imagen temporal como `poster` si resulta útil;
 4. no agregues autoplay con sonido.
 
 ## WhatsApp y redes
@@ -80,18 +82,18 @@ const SOCIAL_LINKS = {
   whatsappChannel: '',
   facebook: '',
   instagram: '',
-  tiktok: '',
+  tiktok: 'https://www.tiktok.com/@dinixtech?_r=1&_t=ZS-993K8dtfh4f',
   telegram: ''
 };
 ```
 
-Los canales sin URL real permanecen deshabilitados. No se inventan perfiles.
+TikTok y WhatsApp están activos. Los canales sin URL real permanecen deshabilitados hasta recibir los enlaces oficiales; no se inventan perfiles. El correo visible es `dinixtech0000@gmail.com`.
 
 ## Formularios y diagnóstico
 
 El contacto y el diagnóstico preparan un mensaje para WhatsApp; no guardan datos en un servidor.
 
-Los campos de audio y video permiten grabar o elegir un archivo local según las capacidades del dispositivo. El sitio muestra nombre y tamaño, permite reemplazarlo o eliminarlo y no lo sube ni lo almacena. La persona debe adjuntarlo manualmente en WhatsApp.
+Audio y video muestran acciones separadas para grabar o subir un archivo local, según las capacidades del dispositivo. El sitio conserva una sola selección por tipo, muestra nombre y tamaño, permite reemplazarla o eliminarla y no la sube ni la almacena. La persona debe adjuntarla manualmente en WhatsApp.
 
 Un flujo futuro de transcripción, IA y CRM requerirá backend, almacenamiento seguro, consentimiento y políticas de privacidad definitivas. Esa arquitectura se conserva únicamente como documentación interna y no se muestra en la interfaz pública.
 
@@ -103,7 +105,7 @@ El modo vendedor se conserva sin exponer controles internos en la interfaz públ
 
 - `index.html`: estructura, contenido, SEO y componentes.
 - `styles.css`: sistema visual y responsive.
-- `script.js`: navegación, drawer, tabs, formularios y diálogos.
+- `script.js`: navegación, drawer, tabs, formularios y diálogo legal.
 - `robots.txt` y `sitemap.xml`: rastreo y URL pública.
 - `backup-before-final-polish-2026-08-17/`: respaldo anterior a la pasada final de diseño y UX.
 

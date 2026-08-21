@@ -17,9 +17,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260817-final2">
+  <link rel="stylesheet" href="styles.css?v=20260820-ux">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"Dinix – Soluciones Tecnológicas","url":"https://dinix.vercel.app/","telephone":"+52 33 1247 2403","contactPoint":{"@type":"ContactPoint","telephone":"+52 33 1247 2403","contactType":"customer service","availableLanguage":["Spanish","English"]}}
+  {"@context":"https://schema.org","@type":"Organization","name":"Dinix – Soluciones Tecnológicas","url":"https://dinix.vercel.app/","telephone":"+52 33 1247 2403","email":"dinixtech0000@gmail.com","contactPoint":{"@type":"ContactPoint","telephone":"+52 33 1247 2403","email":"dinixtech0000@gmail.com","contactType":"customer service","availableLanguage":["Spanish","English"]}}
   </script>
 </head>
 <body>
@@ -46,13 +46,25 @@
     <div class="menu-backdrop" aria-hidden="true"></div>
   </header>
 
+  <nav class="quick-route-nav" aria-label="Accesos rápidos">
+    <div class="container">
+      <a href="#inicio" data-route-link="inicio">Inicio</a>
+      <a href="#soluciones" data-route-link="soluciones">Soluciones</a>
+      <a href="#automatizacion" data-route-link="automatizacion">IA y automatización</a>
+      <a href="#dinix-usa" data-route-link="dinix-usa">Dinix USA</a>
+      <a href="#nosotros" data-route-link="nosotros">Nosotros</a>
+      <a href="#contacto" data-route-link="contacto">Contacto</a>
+      <a class="quick-route-primary" href="#diagnostico" data-route-link="diagnostico">Diagnóstico</a>
+    </div>
+  </nav>
+
   <main id="contenido" class="app-main">
     <section class="app-view home-view is-active" id="inicio" data-view="inicio" aria-labelledby="home-title">
       <div class="container home-grid">
         <div class="home-copy">
           <p class="eyebrow"><span></span>Tecnología práctica para negocios</p>
           <h1 id="home-title">Hacemos que la tecnología <em>trabaje a tu favor.</em></h1>
-          <p class="home-lead">Dinix conecta la tecnología con tu negocio.</p>
+          <p class="home-lead">Dinix conecta tecnología útil con tu negocio: equipos, software, automatización e inteligencia artificial aplicada para trabajar con más orden y menos complicaciones.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#diagnostico" data-route-link="diagnostico">Cuéntanos qué necesita tu negocio <span aria-hidden="true">→</span></a>
             <a class="btn btn-secondary" href="https://wa.me/523312472403?text=Hola%2C%20quiero%20saber%20c%C3%B3mo%20Dinix%20puede%20ayudar%20a%20mi%20negocio." target="_blank" rel="noopener">Hablar por WhatsApp</a>
@@ -70,7 +82,7 @@
         <header class="view-header">
           <p class="eyebrow"><span></span>Soluciones</p>
           <h2 id="solutions-title">Soluciones que se adaptan a tu negocio</h2>
-          <p>No se trata de meter tecnología por meter. Se trata de hacer tu operación más simple, ordenada y funcional.</p>
+          <p>No se trata de venderte tecnología cara e inútil. Se trata de hacer tu trabajo más simple, ordenado y funcional.</p>
         </header>
 
         <div class="section-tabs" role="tablist" aria-label="Explorar soluciones">
@@ -113,12 +125,12 @@
           <section class="tab-panel" id="solution-packages" role="tabpanel" aria-labelledby="tab-packages" data-tab-panel hidden>
             <div class="panel-heading"><div><span>6 opciones combinables</span><h3>Empieza por lo que hoy te hace falta.</h3></div><div class="carousel-controls"><button type="button" data-carousel-prev="packages" aria-label="Paquete anterior">←</button><button type="button" data-carousel-next="packages" aria-label="Paquete siguiente">→</button></div></div>
             <div class="package-carousel" data-carousel="packages">
-              <article class="package-card"><span class="package-icon">01</span><p>Protección clara</p><h3>Negocio Seguro</h3><p>Cámaras, alarmas y protección.</p><div class="package-actions"><a href="#diagnostico" data-route-link="diagnostico" data-interest="Negocio Seguro">Más información</a><button type="button" disabled title="Disponible cuando se agreguen los clips de Laura">Que Laura te lo explique <small>Próximamente</small></button></div></article>
-              <article class="package-card"><span class="package-icon">02</span><p>Todo conectado</p><h3>Negocio Conectado</h3><p>Wi-Fi, redes e internet estable.</p><div class="package-actions"><a href="#diagnostico" data-route-link="diagnostico" data-interest="Negocio Conectado">Más información</a><button type="button" disabled>Que Laura te lo explique <small>Próximamente</small></button></div></article>
-              <article class="package-card"><span class="package-icon">03</span><p>Listo para operar</p><h3>Negocio Equipado</h3><p>POS, impresoras, lectores, básculas y equipos.</p><div class="package-actions"><a href="#diagnostico" data-route-link="diagnostico" data-interest="Negocio Equipado">Más información</a><button type="button" disabled>Que Laura te lo explique <small>Próximamente</small></button></div></article>
-              <article class="package-card"><span class="package-icon">04</span><p>Información clara</p><h3>Negocio Organizado</h3><p>Software, clientes, ventas e información.</p><div class="package-actions"><a href="#diagnostico" data-route-link="diagnostico" data-interest="Negocio Organizado">Más información</a><button type="button" disabled>Que Laura te lo explique <small>Próximamente</small></button></div></article>
-              <article class="package-card"><span class="package-icon">05</span><p>Menos repetición</p><h3>Negocio Automatizado</h3><p>Seguimientos, avisos y tareas repetitivas.</p><div class="package-actions"><a href="#diagnostico" data-route-link="diagnostico" data-interest="Negocio Automatizado">Más información</a><button type="button" disabled>Que Laura te lo explique <small>Próximamente</small></button></div></article>
-              <article class="package-card package-featured"><span class="package-icon">06</span><p>Decisiones con apoyo</p><h3>Negocio Inteligente</h3><p>IA aplicada a operación, atención y análisis.</p><div class="package-actions"><a href="#diagnostico" data-route-link="diagnostico" data-interest="Negocio Inteligente">Más información</a><button type="button" disabled>Que Laura te lo explique <small>Próximamente</small></button></div></article>
+              <article class="package-card"><span class="package-icon">01</span><p>Protección clara</p><h3>Negocio Seguro</h3><p>Cámaras, alarmas y protección.</p><div class="package-actions"><a href="#diagnostico" data-route-link="diagnostico" data-interest="Negocio Seguro">Ver qué incluye <span aria-hidden="true">→</span></a></div></article>
+              <article class="package-card"><span class="package-icon">02</span><p>Todo conectado</p><h3>Negocio Conectado</h3><p>Wi-Fi, redes e internet estable.</p><div class="package-actions"><a href="#diagnostico" data-route-link="diagnostico" data-interest="Negocio Conectado">Ver qué incluye <span aria-hidden="true">→</span></a></div></article>
+              <article class="package-card"><span class="package-icon">03</span><p>Listo para operar</p><h3>Negocio Equipado</h3><p>POS, impresoras, lectores, básculas y equipos.</p><div class="package-actions"><a href="#diagnostico" data-route-link="diagnostico" data-interest="Negocio Equipado">Ver qué incluye <span aria-hidden="true">→</span></a></div></article>
+              <article class="package-card"><span class="package-icon">04</span><p>Información clara</p><h3>Negocio Organizado</h3><p>Software, clientes, ventas e información.</p><div class="package-actions"><a href="#diagnostico" data-route-link="diagnostico" data-interest="Negocio Organizado">Ver qué incluye <span aria-hidden="true">→</span></a></div></article>
+              <article class="package-card"><span class="package-icon">05</span><p>Menos repetición</p><h3>Negocio Automatizado</h3><p>Seguimientos, avisos y tareas repetitivas.</p><div class="package-actions"><a href="#diagnostico" data-route-link="diagnostico" data-interest="Negocio Automatizado">Ver qué incluye <span aria-hidden="true">→</span></a></div></article>
+              <article class="package-card package-featured"><span class="package-icon">06</span><p>Decisiones con apoyo</p><h3>Negocio Inteligente</h3><p>IA aplicada a operación, atención y análisis.</p><div class="package-actions"><a href="#diagnostico" data-route-link="diagnostico" data-interest="Negocio Inteligente">Ver qué incluye <span aria-hidden="true">→</span></a></div></article>
             </div>
             <p class="panel-note">Puedes empezar con uno y combinar soluciones conforme tu negocio lo necesite.</p>
           </section>
@@ -157,15 +169,15 @@
 
     <section class="app-view ai-view" id="automatizacion" data-view="automatizacion" aria-labelledby="ai-title">
       <div class="container view-shell">
-        <header class="view-header ai-header"><p class="eyebrow light"><span></span>Automatización e IA</p><h2 id="ai-title">Así trabaja la automatización en tu negocio</h2><p>La idea no es meter IA por moda. Es quitarte enredos, ordenar tareas y darte seguimiento sin que tengas que estar detrás de todo.</p></header>
+        <header class="view-header ai-header"><p class="eyebrow light"><span></span>Automatización e IA</p><h2 id="ai-title">Qué hace la IA en tu negocio, paso a paso</h2><p>No se trata de usar IA por moda. Se trata de ordenar información, quitar tareas repetitivas y ayudarte a dar seguimiento.</p></header>
 
         <div class="automation-main-flow" aria-label="Flujo principal de automatización">
-          <article><span>1</span><div class="automation-node-icon" aria-hidden="true">✉</div><h3>Cliente escribe</h3><p>Por WhatsApp, web o redes.</p></article>
-          <article><span>2</span><div class="automation-node-icon" aria-hidden="true">◎</div><h3>La IA entiende</h3><p>Interpreta el mensaje y detecta lo importante.</p></article>
-          <article class="is-highlighted"><span>3</span><div class="automation-node-icon" aria-hidden="true">≡</div><h3>Ordena la información</h3><p>Clasifica, extrae datos y prioriza.</p></article>
-          <article><span>4</span><div class="automation-node-icon" aria-hidden="true">✓</div><h3>Crea tarea o recordatorio</h3><p>Genera pendientes y asignaciones.</p></article>
-          <article><span>5</span><div class="automation-node-icon" aria-hidden="true">▤</div><h3>Sugiere respuesta o cotización</h3><p>Propone borradores listos para revisar y enviar.</p></article>
-          <article><span>6</span><div class="automation-node-icon" aria-hidden="true">◉</div><h3>Da seguimiento</h3><p>Revisa avances y no deja nada caer.</p></article>
+          <article><span>1</span><div class="automation-node-icon" aria-hidden="true">✉</div><h3>Cliente escribe</h3><p>Pregunta por precio, disponibilidad o servicio.</p></article>
+          <article><span>2</span><div class="automation-node-icon" aria-hidden="true">◎</div><h3>La IA entiende</h3><p>Detecta al cliente, lo que pide y lo importante.</p></article>
+          <article class="is-highlighted"><span>3</span><div class="automation-node-icon" aria-hidden="true">≡</div><h3>Ordena la información</h3><p>Guarda los datos y marca lo urgente.</p></article>
+          <article><span>4</span><div class="automation-node-icon" aria-hidden="true">✓</div><h3>Crea tarea o recordatorio</h3><p>Anota qué sigue, quién lo hará y para cuándo.</p></article>
+          <article><span>5</span><div class="automation-node-icon" aria-hidden="true">▤</div><h3>Sugiere respuesta o cotización</h3><p>Prepara un borrador; tú lo revisas y decides.</p></article>
+          <article><span>6</span><div class="automation-node-icon" aria-hidden="true">◉</div><h3>Da seguimiento</h3><p>Recuerda pendientes y muestra los avances.</p></article>
         </div>
 
         <div class="ai-lab">
@@ -180,7 +192,7 @@
             </article>
           </div>
 
-          <article class="before-after"><div class="before"><span>Antes</span><ul><li>mensajes sueltos</li><li>notas</li><li>pendientes</li><li>información dispersa</li></ul></div><div class="transition-mark" aria-hidden="true">→</div><div class="after"><span>Después</span><ul><li>tareas claras</li><li>seguimiento visible</li><li>información ordenada</li></ul></div></article>
+          <article class="before-after"><div class="before"><span>Antes</span><ul><li>mensajes sueltos</li><li>notas</li><li>pendientes</li><li>información dispersa</li></ul></div><div class="transition-mark" aria-hidden="true">→</div><div class="after"><span>Después</span><ul><li>tareas claras</li><li>seguimiento visible</li><li>información ordenada</li></ul></div><strong>Menos tiempo buscando; más claridad para actuar.</strong></article>
           <div class="ai-human-close"><span aria-hidden="true">♡</span><p>La tecnología trabaja detrás.<strong>Tu negocio sigue siendo humano.</strong></p></div>
         </div>
       </div>
@@ -189,9 +201,9 @@
     <section class="app-view usa-view" id="dinix-usa" data-view="dinix-usa" aria-labelledby="usa-title">
       <div class="container view-shell">
         <div class="usa-hero">
-          <div><p class="eyebrow"><span></span>Dinix USA · desde México</p><h2 id="usa-title">La tecnología que vas a usar está en inglés. Desde México te enseñamos a usarla en español.</h2><p>Programas, cámaras, computadoras, automatización e IA para que tu negocio funcione mejor.</p><div class="hero-actions"><a class="btn btn-primary" href="#diagnostico" data-route-link="diagnostico" data-interest="Dinix USA">Cuéntanos qué quieres resolver</a><a class="btn btn-secondary" href="https://wa.me/523312472403?text=Hola%2C%20tengo%20un%20negocio%20en%20Estados%20Unidos%20y%20quiero%20informaci%C3%B3n%20de%20Dinix%20USA." target="_blank" rel="noopener">Hablar por WhatsApp</a></div></div>
-          <!-- VIDEO PLACEHOLDER DINIX USA: sustituir el diálogo asociado por <video controls preload="none"> cuando exista el archivo oficial. Sin autoplay. -->
-          <button class="usa-video-poster" type="button" data-open-usa-video aria-label="Ver explicación de Laura sobre Dinix USA"><img src="assets/images/laura-oficial.webp" alt="Laura, avatar visual de Dinix" width="1100" height="1403" loading="lazy"><span class="video-play" aria-hidden="true">▶</span><span class="video-poster-copy"><small>Laura · avatar de Dinix</small><strong>Te lo explicamos en español, paso a paso y sin complicaciones.</strong></span></button>
+          <div><p class="eyebrow"><span></span>Dinix USA · desde México</p><h2 id="usa-title">La tecnología que vas a usar tiene tecnicismos en inglés difíciles de entender. Desde México te enseñamos a usarla en español.</h2><p>Te ayudamos con programas, cámaras, computadoras, automatización e inteligencia artificial para que uses mejor lo que ya tienes y sepas qué sí necesitas.</p><div class="hero-actions"><a class="btn btn-primary" href="#diagnostico" data-route-link="diagnostico" data-interest="Dinix USA">Cuéntanos qué quieres resolver</a><a class="btn btn-secondary" href="https://wa.me/523312472403?text=Hola%2C%20tengo%20un%20negocio%20en%20Estados%20Unidos%20y%20quiero%20informaci%C3%B3n%20de%20Dinix%20USA." target="_blank" rel="noopener">Hablar por WhatsApp</a></div></div>
+          <!-- PÓSTER TEMPORAL DINIX USA: sustituir esta figura por <video controls preload="none"> cuando exista el archivo oficial. Sin autoplay. -->
+          <figure class="temporary-media usa-temporary-media"><img src="assets/images/laura-dinix-usa-temporal.webp" alt="Laura explica que Dinix ayuda desde México a entender y usar tecnología en español" width="1414" height="2000" loading="eager"><figcaption><span>Imagen temporal</span><strong>Después se sustituirá por el video oficial.</strong></figcaption></figure>
         </div>
 
         <div class="usa-benefits" aria-label="Beneficios de Dinix USA"><span>Todo en español desde México</span><span>Te enseñamos a usar tus programas</span><span>Conectamos y configuramos</span><span>Hardware que sí necesitas</span><span>Automatización e IA que te ayudan</span><span>Más orden, menos estrés, más ventas</span></div>
@@ -201,18 +213,28 @@
           <article class="remote-panel" id="usa-case-panel" role="tabpanel" aria-labelledby="usa-tab-dinix" aria-live="polite" tabindex="0"><span id="usa-case-label">Dinix USA</span><h3 id="usa-case-title">Usa la tecnología de tu negocio con más confianza.</h3><p id="usa-case-copy">Desde México te ayudamos a entender, configurar y aprovechar herramientas que normalmente encuentras en inglés.</p><div class="remote-flow" id="usa-case-flow"><span>Lo que ya usas</span><i>→</i><span>Explicación en español</span><i>→</i><span>Configuración</span><i>→</i><span>Uso con confianza</span></div><small>Servicio remoto desde México. No prometemos instalaciones físicas en Estados Unidos.</small></article>
         </div>
 
-        <section class="usa-help" aria-labelledby="usa-help-title"><div><span>Así te ayudamos</span><h3 id="usa-help-title">De entender lo que usas a trabajar con confianza.</h3></div><ol><li><span>1</span><strong>Diagnóstico</strong><small>Entendemos tu negocio y lo que ya usas.</small></li><li><span>2</span><strong>Capacitación en español</strong><small>Te enseñamos sin tecnicismos.</small></li><li><span>3</span><strong>Configuración y conexión</strong><small>Dejamos todo conectado y funcionando.</small></li><li><span>4</span><strong>Recomendación de equipo</strong><small>Solo lo que realmente necesitas.</small></li><li><span>5</span><strong>Seguimiento real</strong><small>Estamos contigo mientras tu negocio crece.</small></li></ol><blockquote>Estamos en México, trabajamos en Estados Unidos.<strong>Hablamos tu idioma, entendemos tu negocio.</strong></blockquote></section>
+        <p class="usa-service-note">Servicio remoto desde México: te explicamos, configuramos y acompañamos en español. Si una solución requiere instalación física en Estados Unidos, primero revisamos qué apoyo local hace falta.</p>
       </div>
     </section>
 
     <section class="app-view about-view" id="nosotros" data-view="nosotros" aria-labelledby="about-title">
       <div class="container view-shell">
-        <header class="view-header"><p class="eyebrow"><span></span>Nosotros</p><h2 id="about-title">No tienes que saber de tecnología para trabajar con nosotros.</h2><p>Dinix existe para hacer que la tecnología sea útil, clara y realmente aplicable a negocios de todos los días.</p></header>
+        <header class="view-header"><p class="eyebrow"><span></span>Nosotros</p><h2 id="about-title">Tecnología útil, clara y aplicada a tu negocio.</h2><p>No tienes que saber de tecnología. Primero entendemos qué te quita tiempo o causa desorden; después conectamos herramientas que sí te sirven.</p></header>
 
-        <!-- LAURA VIDEO PURPOSE (future): Acto 1 caos cotidiano; Acto 2 herramientas desconectadas; Acto 3 elegir y conectar; Acto 4 primero entender el negocio; Acto 5 "Tú conoces tu negocio...". No autoplay. -->
-        <button class="laura-story" type="button" data-open-laura aria-label="Ver la historia de Dinix con Laura"><img src="assets/images/laura-oficial.webp" alt="Laura, avatar visual de Dinix" width="1100" height="1403" loading="lazy"><span class="video-play" aria-hidden="true">▶</span><strong>Conoce por qué existe Dinix</strong></button>
+        <!-- PÓSTER TEMPORAL NOSOTROS: sustituir esta figura por <video controls preload="none"> cuando exista el archivo oficial. Sin autoplay. -->
+        <figure class="temporary-media about-temporary-media"><img src="assets/images/laura-nosotros-temporal.webp" alt="Laura explica por qué Dinix busca hacer la tecnología útil y clara" width="1414" height="2000" loading="eager"><figcaption><span>Imagen temporal</span><strong>Conoce por qué existe Dinix.</strong></figcaption></figure>
 
-        <section class="local-network" aria-labelledby="network-title"><header><span>Una red flexible</span><h3 id="network-title">Conectamos lo que necesitas con gente de aquí.</h3><p>Tú pides lo que hace falta. Dinix arma la solución y activa proveedores locales para que todos ganemos.</p></header><div class="network-diagram"><article class="network-party"><span>Cliente</span><div class="network-core" aria-hidden="true">▣</div><ul><li>cámaras</li><li>software</li><li>Wi-Fi</li><li>computadora</li><li>automatización</li></ul></article><i aria-hidden="true">→</i><article class="network-party network-dinix"><span>Dinix</span><div class="network-core"><img src="assets/images/dinix-logo-orange-trimmed.png" alt="" width="284" height="105"></div><ul><li>entiende</li><li>coordina</li><li>da seguimiento</li></ul></article><i aria-hidden="true">→</i><article class="network-party"><span>Proveedores locales</span><div class="network-core" aria-hidden="true">♧</div><ul><li>equipos</li><li>instalación</li><li>redes</li><li>soporte</li><li>servicios especializados</li></ul></article></div><div class="network-impact"><span aria-hidden="true">♡</span><p>Cliente resuelve <b>•</b> proveedor vende <b>•</b> el comercio local se mueve.</p></div></section>
+        <section class="local-network" aria-labelledby="network-title">
+          <header><span>Alianzas locales</span><h3 id="network-title">Una cadena de trabajo donde todos aportan.</h3><p>Dinix coordina la solución y, cuando hace falta, trabaja con proveedores locales para resolver mejor, crear alianzas y mover la economía de la zona.</p></header>
+          <div class="network-diagram">
+            <article class="network-party"><span>1 · Cliente</span><div class="network-core" aria-hidden="true">▣</div><h4>Plantea lo que necesita</h4><p>Explica qué no está funcionando, qué quiere mejorar y qué resultado espera.</p><ul><li>problema real</li><li>prioridad</li><li>resultado esperado</li></ul></article>
+            <div class="network-connector" aria-hidden="true"><span>→</span><small>Dinix lo aterriza</small></div>
+            <article class="network-party network-dinix"><span>2 · Dinix</span><div class="network-core"><img src="assets/images/dinix-logo-orange-trimmed.png" alt="" width="284" height="105"></div><h4>Entiende y coordina</h4><p>Organiza la necesidad, arma la propuesta, conecta a las personas correctas y da seguimiento.</p><ul><li>diagnóstico</li><li>coordinación</li><li>seguimiento</li></ul></article>
+            <div class="network-connector" aria-hidden="true"><span>→</span><small>Activa aliados</small></div>
+            <article class="network-party"><span>3 · Proveedores locales</span><div class="network-core" aria-hidden="true">♧</div><h4>Aportan experiencia y recursos</h4><p>Participan con equipos, instalación, redes, soporte o servicios especializados.</p><ul><li>equipos</li><li>instalación</li><li>soporte</li></ul></article>
+          </div>
+          <div class="network-impact"><span aria-hidden="true">♡</span><p><strong>El cliente resuelve</strong><b>•</b><strong>el proveedor vende</strong><b>•</b><strong>la economía local se mueve</strong></p></div>
+        </section>
       </div>
     </section>
 
@@ -225,15 +247,22 @@
             <div class="field-row"><div class="field"><label for="contact-name">Nombre</label><input id="contact-name" name="name" type="text" autocomplete="name" required></div><div class="field"><label for="contact-business">Negocio</label><input id="contact-business" name="business" type="text" autocomplete="organization"></div></div>
             <div class="field-row"><div class="field"><label for="contact-location">Ciudad / país</label><input id="contact-location" name="location" type="text" autocomplete="address-level2" required></div><div class="field"><label for="contact-phone">WhatsApp o teléfono</label><input id="contact-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div></div>
             <div class="field"><label for="contact-need">¿Qué te gustaría que funcionara mejor en tu negocio?</label><textarea id="contact-need" name="need" rows="5" placeholder="Ejemplo: Se me van clientes por falta de seguimiento." required></textarea><small>También puedes contarnos si necesitas cámaras, pedidos por internet, organizar ventas o automatizar una tarea.</small></div>
-            <div class="field"><label for="contact-preference">¿Cómo prefieres que te contactemos?</label><select id="contact-preference" name="preference"><option>Por WhatsApp</option><option>Por llamada</option><option>Por videollamada</option><option>Con una visita, si aplica</option></select></div>
+            <fieldset class="contact-preferences"><legend>¿Cómo prefieres que te contactemos?</legend><div><label><input type="radio" name="preference" value="Por WhatsApp" checked><span><strong>WhatsApp</strong><small>Mensaje directo</small></span></label><label><input type="radio" name="preference" value="Por llamada"><span><strong>Llamada</strong><small>Al número indicado</small></span></label><label><input type="radio" name="preference" value="Por correo"><span><strong>Correo</strong><small>Respuesta por email</small></span></label><label><input type="radio" name="preference" value="Con una visita, si aplica"><span><strong>Visita</strong><small>Cuando el proyecto lo requiera</small></span></label></div></fieldset>
             <button class="btn btn-primary form-submit" type="submit">Preparar mensaje para Dinix <span aria-hidden="true">→</span></button>
             <p class="form-note">No guardamos estos datos en un servidor. Prepararemos un mensaje para que tú decidas enviarlo por WhatsApp.</p>
           </form>
 
           <aside class="contact-aside">
-            <div class="laura-quote"><div class="avatar-mark" aria-hidden="true">L</div><div><span>Laura · avatar de Dinix</span><p>“No necesitas saber cómo se llama la solución. Cuéntame qué quieres mejorar.”</p></div></div>
-            <a class="direct-contact" href="tel:+523312472403"><span>Atención directa</span><strong>33 1247 2403</strong></a>
-            <div class="social-block"><h3>Conecta con Dinix</h3><div class="social-grid"><a class="social-link is-live" href="https://wa.me/523312472403" target="_blank" rel="noopener"><span class="social-icon social-whatsapp">WA</span><div><strong>WhatsApp</strong><small>Hablar directamente</small></div></a><button class="social-link" type="button" data-social="whatsappChannel"><span class="social-icon social-channel">CN</span><div><strong>Canal de WhatsApp</strong><small>URL por configurar</small></div></button><button class="social-link" type="button" data-social="facebook"><span class="social-icon social-facebook">f</span><div><strong>Facebook</strong><small>URL por configurar</small></div></button><button class="social-link" type="button" data-social="instagram"><span class="social-icon social-instagram">IG</span><div><strong>Instagram</strong><small>URL por configurar</small></div></button><button class="social-link" type="button" data-social="tiktok"><span class="social-icon social-tiktok">TK</span><div><strong>TikTok</strong><small>URL por configurar</small></div></button><button class="social-link" type="button" data-social="telegram"><span class="social-icon social-telegram">TG</span><div><strong>Telegram</strong><small>URL por configurar</small></div></button></div></div>
+            <a class="diagnosis-cta-card" href="#diagnostico" data-route-link="diagnostico"><span>¿No sabes cómo se llama la solución?</span><strong>Cuéntanos qué quieres mejorar.</strong><small>Ir al diagnóstico <b aria-hidden="true">→</b></small></a>
+            <div class="direct-contact-grid"><a class="direct-contact" href="tel:+523312472403"><span>Teléfono directo</span><strong>33 1247 2403</strong></a><a class="direct-contact" href="mailto:dinixtech0000@gmail.com"><span>Correo</span><strong>dinixtech0000@gmail.com</strong></a></div>
+            <div class="social-block"><h3>Conecta con Dinix</h3><div class="social-grid">
+              <a class="social-link is-live" href="https://wa.me/523312472403" target="_blank" rel="noopener"><span class="social-icon social-whatsapp" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.6c-2.1 0-4.1-.6-5.8-1.7l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-2-.8-3.4-2.6-3.7-3-.3-.5 0-.7.2-.9l.5-.6.3-.6c.1-.2 0-.5 0-.6l-1-2.3c-.3-.6-.6-.5-.8-.5h-.7c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.2s1.4 3.7 1.6 4c.2.2 2.8 4.3 6.8 6 1 .4 1.7.6 2.3.8 1 .3 1.8.3 2.5.2.8-.1 2.5-1 2.8-2 .4-1 .4-1.8.3-2-.1-.2-.4-.3-.7-.5Z"/></svg></span><div><strong>WhatsApp</strong><small>Hablar directamente</small></div></a>
+              <button class="social-link" type="button" data-social="whatsappChannel"><span class="social-icon social-channel" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14v10H9l-4 4V5Zm4 4h6M9 12h4"/></svg></span><div><strong>Canal de WhatsApp</strong><small>Enlace pendiente</small></div></button>
+              <button class="social-link" type="button" data-social="facebook"><span class="social-icon social-facebook" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v6h4v-6h3l1-4h-4V9c0-.7.3-1 1-1Z"/></svg></span><div><strong>Facebook</strong><small>Enlace pendiente</small></div></button>
+              <button class="social-link" type="button" data-social="instagram"><span class="social-icon social-instagram" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></span><div><strong>Instagram</strong><small>Enlace pendiente</small></div></button>
+              <button class="social-link is-live" type="button" data-social="tiktok"><span class="social-icon social-tiktok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3v11.2a4.6 4.6 0 1 1-4-4.6V14a1.8 1.8 0 1 0 1.2 1.7V3h2.8Zm0 0c.5 2.7 2 4.2 5 4.5v4c-2-.1-3.7-.8-5-1.9"/></svg></span><div><strong>TikTok</strong><small>@dinixtech</small></div></button>
+              <button class="social-link" type="button" data-social="telegram"><span class="social-icon social-telegram" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 11 18-8-4 18-6-6-4 3 1-5 9-7-11 6-3-1Z"/></svg></span><div><strong>Telegram</strong><small>Enlace pendiente</small></div></button>
+            </div></div>
           </aside>
         </div>
       </div>
@@ -243,19 +272,17 @@
       <div class="container view-shell">
         <header class="view-header diagnosis-header"><p class="eyebrow light"><span></span>Diagnóstico</p><h2 id="diagnosis-title">Cuéntanos qué quieres mejorar.</h2><p>No necesitas conocer la solución. Explícanos qué está pasando y nosotros te ayudamos a entender por dónde empezar.</p></header>
 
-        <div class="laura-guide"><div class="avatar-mark" aria-hidden="true">L</div><div><span>Laura · avatar de Dinix</span><p>“No necesitas saber cómo se llama la solución. Cuéntame qué quieres mejorar.”</p></div></div>
-
         <form class="diagnosis-form" id="diagnosis-form">
           <section class="diagnosis-method"><div class="method-heading"><span>01 · Escribir</span><h3>Cuéntanos qué está pasando en tu negocio.</h3><p>No necesitas hablar con palabras técnicas. Cuéntanos el problema como se lo contarías a alguien.</p></div><div class="field"><label class="sr-only" for="diagnosis-text">Describe lo que ocurre</label><textarea id="diagnosis-text" name="story" rows="6" placeholder="Por ejemplo: recibo solicitudes por varios lugares y algunas se me olvidan..."></textarea></div></section>
 
           <section class="diagnosis-method"><div class="method-heading"><span>02 · Preguntas rápidas</span><h3>¿Qué te gustaría mejorar?</h3><p>Puedes elegir más de una opción.</p></div><fieldset class="quick-grid"><legend class="sr-only">Áreas que quieres mejorar</legend><label><input type="checkbox" name="areas" value="Conseguir o atender mejor clientes"><span>Conseguir o atender mejor clientes</span></label><label><input type="checkbox" name="areas" value="Organizar ventas o pedidos"><span>Organizar ventas o pedidos</span></label><label><input type="checkbox" name="areas" value="Ahorrar tiempo en tareas repetitivas"><span>Ahorrar tiempo en tareas repetitivas</span></label><label><input type="checkbox" name="areas" value="Seguridad o cámaras"><span>Seguridad / cámaras</span></label><label><input type="checkbox" name="areas" value="Internet o red"><span>Internet / red</span></label><label><input type="checkbox" name="areas" value="Equipar el negocio"><span>Equipar el negocio</span></label><label><input type="checkbox" name="areas" value="Software"><span>Software</span></label><label><input type="checkbox" name="areas" value="Automatización o IA"><span>Automatización / IA</span></label><label><input type="checkbox" name="areas" value="No estoy seguro"><span>No estoy seguro</span></label><label><input type="checkbox" name="areas" value="Otro"><span>Otro</span></label></fieldset></section>
 
           <div class="media-methods">
-            <section class="diagnosis-method media-method"><div class="method-heading"><span>03 · Audio</span><h3>Grabar o elegir nota de voz</h3><p>Explícanos qué haces hoy, qué te da problemas y qué te gustaría que fuera más fácil.</p></div><label class="upload-control" for="diagnosis-audio"><span aria-hidden="true">🎙️</span><span><strong>Grabar o elegir audio</strong><small>Toca aquí para seleccionar o reemplazar el archivo</small></span></label><input class="sr-only" id="diagnosis-audio" name="audio" type="file" accept="audio/*" capture aria-describedby="audio-status"><div class="file-row"><p class="file-status" id="audio-status" aria-live="polite">Ningún audio seleccionado.</p><button class="file-remove" type="button" data-clear-file="audio" hidden>Eliminar archivo</button></div></section>
-            <section class="diagnosis-method media-method"><div class="method-heading"><span>04 · Video</span><h3>Grabar o elegir video</h3><p>Si es más fácil, enséñanos tu negocio, equipo o proceso y explica qué quieres mejorar.</p></div><label class="upload-control" for="diagnosis-video"><span aria-hidden="true">🎥</span><span><strong>Grabar o elegir video</strong><small>Toca aquí para seleccionar o reemplazar el archivo</small></span></label><input class="sr-only" id="diagnosis-video" name="video" type="file" accept="video/*" capture="environment" aria-describedby="video-status"><div class="file-row"><p class="file-status" id="video-status" aria-live="polite">Ningún video seleccionado.</p><button class="file-remove" type="button" data-clear-file="video" hidden>Eliminar archivo</button></div></section>
+            <section class="diagnosis-method media-method"><div class="method-heading"><span>03 · Audio</span><h3>¿Quieres grabarlo o subirlo?</h3><p>Elige una acción. Tu archivo se queda en tu dispositivo hasta que tú decidas adjuntarlo en WhatsApp.</p></div><div class="media-action-grid"><label class="upload-control" for="diagnosis-audio-record"><span aria-hidden="true">🎙️</span><span><strong>Grabar audio</strong><small>Abre la grabadora compatible de tu teléfono</small></span></label><input class="sr-only" id="diagnosis-audio-record" name="audio-record" type="file" accept="audio/*" capture data-media-input="audio" data-media-action="grabado" aria-describedby="audio-status"><label class="upload-control" for="diagnosis-audio-upload"><span aria-hidden="true">↑</span><span><strong>Subir audio</strong><small>Elige una nota de voz que ya tienes</small></span></label><input class="sr-only" id="diagnosis-audio-upload" name="audio-upload" type="file" accept="audio/*" data-media-input="audio" data-media-action="subido" aria-describedby="audio-status"></div><div class="file-row"><p class="file-status" id="audio-status" aria-live="polite">Ningún audio seleccionado.</p><button class="file-remove" type="button" data-clear-file="audio" hidden>Eliminar archivo</button></div></section>
+            <section class="diagnosis-method media-method"><div class="method-heading"><span>04 · Video</span><h3>¿Quieres grabarlo o subirlo?</h3><p>Graba lo que está pasando ahora o selecciona un video existente de tu negocio, equipo o proceso.</p></div><div class="media-action-grid"><label class="upload-control" for="diagnosis-video-record"><span aria-hidden="true">●</span><span><strong>Grabar video</strong><small>Abre la cámara para crear uno nuevo</small></span></label><input class="sr-only" id="diagnosis-video-record" name="video-record" type="file" accept="video/*" capture="environment" data-media-input="video" data-media-action="grabado" aria-describedby="video-status"><label class="upload-control" for="diagnosis-video-upload"><span aria-hidden="true">↑</span><span><strong>Subir video</strong><small>Elige un video que ya está en tu dispositivo</small></span></label><input class="sr-only" id="diagnosis-video-upload" name="video-upload" type="file" accept="video/*" data-media-input="video" data-media-action="subido" aria-describedby="video-status"></div><div class="file-row"><p class="file-status" id="video-status" aria-live="polite">Ningún video seleccionado.</p><button class="file-remove" type="button" data-clear-file="video" hidden>Eliminar archivo</button></div></section>
           </div>
 
-          <p class="media-disclaimer">Esta versión no sube ni almacena archivos. Si seleccionas audio o video, WhatsApp se abrirá con el contexto escrito y tú podrás adjuntar el archivo manualmente.</p>
+          <p class="media-disclaimer"><strong>Tú controlas tus archivos.</strong> Esta versión no los sube ni los almacena. WhatsApp se abrirá con el contexto escrito y ahí podrás adjuntar manualmente el audio o video que elegiste.</p>
           <button class="btn btn-primary diagnosis-submit" type="submit">Preparar mi diagnóstico <span aria-hidden="true">→</span></button>
         </form>
 
@@ -269,23 +296,19 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-identity"><a class="brand footer-brand" href="#inicio" data-route-link="inicio" aria-label="Dinix, ir a Inicio"><img class="brand-logo" src="assets/images/dinix-logo-orange-trimmed.png" alt="Dinix" width="284" height="105" loading="lazy"></a><p>Hacemos que la tecnología trabaje a tu favor.</p></div>
-      <nav class="footer-links" aria-label="Navegación del pie"><a href="#inicio" data-route-link="inicio">Inicio</a><a href="#soluciones" data-route-link="soluciones">Soluciones</a><a href="#automatizacion" data-route-link="automatizacion">Automatización e IA</a><a href="#dinix-usa" data-route-link="dinix-usa">Dinix USA</a><a href="#nosotros" data-route-link="nosotros">Nosotros</a><a href="#contacto" data-route-link="contacto">Contacto</a></nav>
-      <div class="footer-actions"><a href="https://wa.me/523312472403" target="_blank" rel="noopener">WhatsApp</a><a href="#contacto" data-route-link="contacto">Redes y canales</a><button type="button" data-legal="privacy">Aviso de privacidad</button><button type="button" data-legal="terms">Términos</button></div>
+      <nav class="footer-links" aria-label="Navegación del pie"><a href="#inicio" data-route-link="inicio">Inicio</a><a href="#soluciones" data-route-link="soluciones">Soluciones</a><a href="#automatizacion" data-route-link="automatizacion">Automatización e IA</a><a href="#dinix-usa" data-route-link="dinix-usa">Dinix USA</a><a href="#nosotros" data-route-link="nosotros">Nosotros</a><a href="#contacto" data-route-link="contacto">Contacto</a><a href="#diagnostico" data-route-link="diagnostico">Diagnóstico</a></nav>
+      <div class="footer-actions"><a href="https://wa.me/523312472403" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:dinixtech0000@gmail.com">Correo</a><a href="#contacto" data-route-link="contacto">Redes y canales</a><button type="button" data-legal="privacy">Aviso de privacidad</button><button type="button" data-legal="terms">Términos</button></div>
     </div>
-    <div class="container footer-bottom"><span>© <span id="year">2026</span> Dinix.</span><span>33 1247 2403</span></div>
+    <div class="container footer-bottom"><span>© <span id="year">2026</span> Dinix.</span><a href="tel:+523312472403">33 1247 2403</a><a href="mailto:dinixtech0000@gmail.com">dinixtech0000@gmail.com</a></div>
   </footer>
 
   <div class="sales-toolbar" id="sales-toolbar" aria-hidden="true" aria-label="Presentación interna Dinix"><button class="sales-close" type="button" data-sales-close aria-label="Cerrar presentación interna">×</button><div class="sales-status"><span id="sales-counter">1 / 7</span><strong id="sales-title">Inicio</strong></div><div class="sales-controls"><button type="button" data-sales-prev>Anterior</button><button type="button" data-sales-next>Siguiente <span aria-hidden="true">→</span></button></div></div>
 
   <a class="whatsapp-float" href="https://wa.me/523312472403" target="_blank" rel="noopener" aria-label="Contactar a Dinix por WhatsApp"><span class="wa-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.6c-2.1 0-4.1-.6-5.8-1.7l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-2-.8-3.4-2.6-3.7-3-.3-.5 0-.7.2-.9l.5-.6.3-.6c.1-.2 0-.5 0-.6l-1-2.3c-.3-.6-.6-.5-.8-.5h-.7c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.2s1.4 3.7 1.6 4c.2.2 2.8 4.3 6.8 6 1 .4 1.7.6 2.3.8 1 .3 1.8.3 2.5.2.8-.1 2.5-1 2.8-2 .4-1 .4-1.8.3-2-.1-.2-.4-.3-.7-.5Z"/></svg></span><span>WhatsApp</span></a>
 
-  <dialog class="site-dialog media-dialog" id="laura-dialog" aria-labelledby="laura-dialog-title"><button class="dialog-close" type="button" data-close-dialog aria-label="Cerrar">×</button><div class="dialog-media"><img src="assets/images/laura-oficial.webp" alt="Laura, avatar visual de Dinix" width="1100" height="1403" loading="lazy"><span>Video pendiente de integrar</span><small>Se reproducirá únicamente cuando exista el archivo oficial.</small></div><div><span class="future-badge">Sin autoplay</span><h2 id="laura-dialog-title">Conoce por qué existe Dinix</h2><p>El poster oficial de Laura ya está integrado. Falta el archivo final de video; no se simula reproducción ni se carga contenido inexistente.</p></div></dialog>
-
-  <dialog class="site-dialog media-dialog" id="usa-video-dialog" aria-labelledby="usa-video-dialog-title"><button class="dialog-close" type="button" data-close-dialog aria-label="Cerrar">×</button><div class="dialog-media"><img src="assets/images/laura-oficial.webp" alt="Laura, avatar visual de Dinix" width="1100" height="1403" loading="lazy"><span>Video Dinix USA pendiente</span><small>Poster oficial listo; falta el archivo de video.</small></div><div><span class="future-badge">Reproducción bajo demanda</span><h2 id="usa-video-dialog-title">Tecnología en inglés, explicada en español.</h2><p>Este espacio queda preparado para el video oficial de Laura. No hay autoplay ni una reproducción ficticia.</p></div></dialog>
-
   <dialog class="site-dialog legal-dialog" id="legal-dialog" aria-labelledby="legal-title"><button class="dialog-close" type="button" data-close-dialog aria-label="Cerrar">×</button><div><span class="future-badge">Documento informativo</span><h2 id="legal-title">Aviso de privacidad</h2><div id="legal-copy"><p>Esta versión del sitio no almacena formularios en un servidor. Los mensajes se preparan localmente y sólo se comparten cuando el usuario decide enviarlos mediante WhatsApp.</p><p>Antes de habilitar CRM, carga de archivos o almacenamiento, Dinix deberá publicar el documento legal completo correspondiente.</p></div></div></dialog>
 
   <noscript><style>.app-view{display:block}.app-view:not(#inicio){margin-top:2rem}[hidden]{display:block}</style></noscript>
-  <script src="script.js?v=20260817-final2"></script>
+  <script src="script.js?v=20260820-ux"></script>
 </body>
 </html>
